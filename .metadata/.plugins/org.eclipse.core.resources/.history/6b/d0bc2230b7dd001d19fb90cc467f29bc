@@ -1,0 +1,86 @@
+/* Yleiset tyylit */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F5F5F5;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin: 50px 0;
+}
+
+/* Taulukon tyylit */
+
+#listaus {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+#listaus th, #listaus td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+#listaus th {
+  background-color: #F9F9F9;
+  font-weight: bold;
+  color: #333;
+}
+
+#listaus tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Lomakkeen tyylit */
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+form input[type="text"], form input[type="email"], form input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+form input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Viesti-alueen tyylit */
+
+#ilmo {
+  display: block;
+  max-width: 500px;
+  margin: 20px auto;
+  background-color: #F9F9F9;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #333;
+}

@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="scripts/main.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<table id="listaus">
+	<thead>			
+		<tr>
+			<th>Rekisterinumero</th>
+			<th>Merkki</th>
+			<th>Malli</th>
+			<th>Vuosi</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody id="tbody">
+	</tbody>
+</table>
+<span id="ilmo"></span>
+<script>
+//funktio tietojen hakemista varten. Kutsutaan backin GET metodia
+function haeAutot() {
+	let url = "autot"; 
+	let requestOptions = {
+        method: "GET",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }       
+    };    
+    fetch(url, requestOptions)
+    .then(response => response.json())//Muutetaan vastausteksti JSON-objektiksi 
+   	.then(response => printItems(response)) 
+   	.catch(errorText => console.error("Fetch failed: " + errorText));
+}
+
+//Kirjoitetaan tiedot taulukkoon JSON-objektilistasta
+function printItems(respObjList){
+	//console.log(respObjList);
+	let htmlStr="";
+	for(let item of respObjList){//yksi kokoelmalooppeista		
+    	htmlStr+="<tr id='rivi_"+item.id+"'>";
+    	htmlStr+="<td>"+item.rekno+"</td>";
+    	htmlStr+="<td>"+item.merkki+"</td>";
+    	htmlStr+="<td>"+item.malli+"</td>";
+    	htmlStr+="<td>"+item.vuosi+"</td>";     	
+    	htmlStr+="</tr>";    	
+	}	
+	document.getElementById("tbody").innerHTML = htmlStr;	
+}
+</script>
+</body>
+</html>
