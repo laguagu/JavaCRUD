@@ -1,4 +1,4 @@
 Ohjelmointi2
 WebProject
-.metadata
-.sonarlint
+.metadata/
+.sonarlint/
