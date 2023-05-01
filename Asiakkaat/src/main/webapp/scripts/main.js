@@ -1,3 +1,10 @@
+//funktio lomaketietojen muuttamiseksi JSON-stringiksi
+function serialize_form(form){
+	return JSON.stringify(
+	    Array.from(new FormData(form).entries())
+	        .reduce((m, [ key, value ]) => Object.assign(m, { [key]: value }), {})
+	        );	
+}
 //funktio tietojen hakemista varten. Kutsutaan backin GET metodia
 function haeHenkilot() {
 	let hakusana = document.getElementById("hakusana").value;
@@ -71,9 +78,10 @@ function siivoa(teksti) {
 
 //funktio tietojen lisäämistä varten. Kutsutaan backin POST-metodia ja välitetään kutsun mukana auton tiedot json-stringinä.
 function lisaaTiedot() {
+	
 	let formData = serialize_form(document.lomake); //Haetaan tiedot lomakkeelta ja muutetaan JSON-stringiksi
-	//console.log(formData);
-	let url = "henkilot";
+	console.log(formData);
+	let url = "asiakkaat";
 	let requestOptions = {
 		method: "POST", //Lisätään auto
 		headers: { "Content-Type": "application/json" },
