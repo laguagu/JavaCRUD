@@ -5,14 +5,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <script src="scripts/main.js"></script>
+<script src="scripts/io.js"></script>
 <link rel="stylesheet" href="styles/style.css">
 <title>Henkilöt</title>
 </head>
-<body>
+<body onload="asetaFocus('hakusana')" onkeydown="tutkiKey(event, 'listaa')">
 <table id="listaus">
 	<thead>
 		<tr>
-			<th colspan="5"><a  href="lisaaHenkilo.jsp">Lisää uusi auto</a></th>
+			<th colspan="5"><a  href="lisaaHenkilo.jsp">Lisää uusi asiakas</a></th>
 		</tr>
 		<tr>
 			<th>Hakusana:</th>

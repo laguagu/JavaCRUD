@@ -153,4 +153,69 @@ public class Dao {
 		}
 		return paluuArvo;
 	}
+	public Asiakas getItem(int id) {
+		Asiakas asiakas = null;
+		sql = "SELECT * FROM asiakkaat WHERE id=?";       
+		try {
+			con=yhdista();
+			if(con!=null){ 
+				stmtPrep = con.prepareStatement(sql); 
+				stmtPrep.setInt(1, id);
+        		rs = stmtPrep.executeQuery();  
+        		if(rs.isBeforeFirst()){ //jos kysely tuotti dataa
+        			rs.next();
+        			asiakas = new Asiakas();        			
+					asiakas.setId(rs.getInt(1));
+					asiakas.setEtunimi(rs.getString(2));
+					asiakas.setSukunimi(rs.getString(3));
+					asiakas.setPuhelin(rs.getString(4));
+					asiakas.setSposti(rs.getString(5));     			      			
+				}        		
+			}			 
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sulje();
+		}		
+		return asiakas;		
+	}
+	public boolean changeItem(Asiakas asiakas){
+		boolean paluuArvo=true;
+		sql="UPDATE asiakkaat SET etunimi=?, sukunimi=?, puhelin=?, sposti=? WHERE id=?";						  
+		try {
+			con = yhdista();
+			stmtPrep = con.prepareStatement(sql);
+			stmtPrep.setString(1, asiakas.getEtunimi());
+			stmtPrep.setString(2, asiakas.getSukunimi());
+			stmtPrep.setString(3, asiakas.getPuhelin());
+			stmtPrep.setString(4, asiakas.getSposti());
+			stmtPrep.setInt(5, asiakas.getId());
+			stmtPrep.executeUpdate();	        
+		} catch (Exception e) {				
+			e.printStackTrace();
+			paluuArvo=false;
+		} finally {
+			sulje();
+		}				
+		return paluuArvo;
+	}
+	
+	public boolean removeAllItems(String pwd){
+		boolean paluuArvo=true;
+		if(!pwd.equals("Nimda")) { //"Kovakoodattu" salasana -ei ole hyvä idea!
+			return false;
+		}
+		sql="DELETE FROM asiakkaat";						  
+		try {
+			con = yhdista();
+			stmtPrep=con.prepareStatement(sql); 			
+			stmtPrep.executeUpdate();	        
+		} catch (Exception e) {				
+			e.printStackTrace();
+			paluuArvo=false;
+		} finally {
+			sulje();
+		}				
+		return paluuArvo;
+	}
 }
