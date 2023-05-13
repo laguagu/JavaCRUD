@@ -26,7 +26,7 @@ public class Asiakkaat extends HttpServlet {
     	System.out.println("Asiakkaat.Asiakkaat()");
     }
 
-	//Tietojen hakeminen
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Asiakkaat.doGet()");
 		String hakusana = request.getParameter("hakusana");
@@ -54,7 +54,7 @@ public class Asiakkaat extends HttpServlet {
 		out.println(strJSON);
 	}
 
-	//Tietojen lisääminen
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Autot.doPost()");
 		//Luetaan JSON-tiedot POST-pyynnön bodysta ja luodaan niiden perusteella uusi asiakas

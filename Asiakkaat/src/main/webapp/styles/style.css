@@ -53,3 +53,46 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* Esimerkki 1: Muutetaan taustav‰ri */
+#loginDiv {
+    background-color: #f2f2f2;
+}
+
+/* Esimerkki 2: Lis‰t‰‰n reunus ja pyˆristet‰‰n kulmat */
+#loginDiv {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Esimerkki 3: Muutetaan tekstien v‰ritys */
+#loginDiv label {
+    color: #333;
+}
+
+#loginDiv input[type="text"],
+#loginDiv input[type="password"] {
+    color: #666;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+#loginDiv input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+}
+#loginDiv form label {
+  display: inline-block;
+  width: 100px; /* m‰‰rittele label-elementtien leveys */
+  padding-left: 10px; /* m‰‰rittele sisennys */
+}
+
+#loginDiv form input {
+  flex-grow: 1;
+}
